@@ -4,7 +4,8 @@
   "description": "Demo project for classes and class diagrams",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "npm run prettier; npm run eslint; npm run jest",
+    "jest": "jest",
     "eslint": "eslint .",
     "prettier": "prettier --check ."
   },

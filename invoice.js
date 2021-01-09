@@ -1,7 +1,7 @@
 class InvoiceLine {
   constructor(product, unitPrice, quantity) {
     this.product = product;
-    this.unitPrice = unitPrice;
+    this.unitPrice = InvoiceLine.round(unitPrice);
     this.quantity = quantity;
   }
 
@@ -9,6 +9,10 @@ class InvoiceLine {
     return this.quantity * this.unitPrice;
   }
 }
+
+InvoiceLine.round = (amount) => {
+  return Math.round(amount * 10000) / 10000;
+};
 
 class Invoice {
   constructor() {
@@ -23,17 +27,21 @@ class Invoice {
     const subtotal = this.lines
       .map((line) => line.total())
       .reduce((accumulator, lineTotal) => accumulator + lineTotal);
-    return Math.round(subtotal * 100) / 100;
+    return Invoice.round(subtotal);
   }
 
   totalTax() {
-    const totalTax = this.subtotal() * .21;
-    return Math.round(totalTax * 100) / 100;
+    const totalTax = this.subtotal() * 0.21;
+    return Invoice.round(totalTax);
   }
 
   total() {
     return this.subtotal() + this.totalTax();
   }
 }
+
+Invoice.round = (amount) => {
+  return Math.round(amount * 100) / 100;
+};
 
 module.exports = { Invoice, InvoiceLine };
