@@ -1,16 +1,19 @@
 {
+  "author": "François ROLAND <francois.roland@iepscf-uccle.be>",
+  "description": "Demo project for classes and class diagrams",
+  "license": "UNLICENSED",
   "name": "classes-and-diagrams",
   "version": "1.0.0",
-  "description": "Demo project for classes and class diagrams",
-  "main": "index.js",
-  "scripts": {
-    "test": "npm run prettier; npm run eslint; npm run jest",
-    "jest": "jest",
-    "eslint": "eslint .",
-    "prettier": "prettier --check ."
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "debug": "^4.3.1",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "livereload": "^0.9.1",
+    "morgan": "^1.10.0",
+    "serve-favicon": "^2.5.0"
   },
-  "author": "François ROLAND <francois.roland@iepscf-uccle.be>",
-  "license": "UNLICENSED",
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "eslint": "^7.17.0",
@@ -49,5 +52,13 @@
     "tabWidth": 2,
     "semi": true,
     "singleQuote": true
+  },
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "cross-env DEBUG=classes-and-diagrams:* nodemon ./bin/www",
+    "test": "npm run prettier; npm run eslint; npm run jest",
+    "jest": "jest",
+    "eslint": "eslint .",
+    "prettier": "prettier --check ."
   }
 }

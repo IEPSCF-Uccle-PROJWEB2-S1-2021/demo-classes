@@ -1,4 +1,4 @@
-const { Invoice, InvoiceLine } = require('./invoice');
+const { Invoice, InvoiceLine } = require('../models/invoice');
 
 describe('Invoice', () => {
   test('single line subtotal', () => {

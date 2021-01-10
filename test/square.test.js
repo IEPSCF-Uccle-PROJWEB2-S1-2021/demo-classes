@@ -1,4 +1,4 @@
-const Square = require('./square');
+const Square = require('../models/square');
 
 test.each([
   [3, 9],
