@@ -5,14 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Chrome",
+      "name": "Browser",
       "request": "launch",
       "type": "pwa-chrome",
       "url": "http://localhost:3000",
       "webRoot": "${workspaceFolder}/public"
     },
     {
-      "name": "Server with automatic restart",
+      "name": "Server",
       "env": {
         "DEBUG": "classes-and-diagrams:*"
       },
