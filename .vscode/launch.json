@@ -17,13 +17,9 @@
         "DEBUG": "classes-and-diagrams:*"
       },
       "request": "launch",
-      "runtimeArgs": [
-        "./bin/www"
-      ],
+      "runtimeArgs": ["./bin/www"],
       "runtimeExecutable": "nodemon",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
+      "skipFiles": ["<node_internals>/**"],
       "type": "pwa-node"
     }
   ]
