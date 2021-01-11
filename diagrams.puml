@@ -1,0 +1,75 @@
+@startuml square
+skinparam defaultFontName FiraCode NF
+
+class Square {
+  +sideLength: Number
+  +constructor(sideLength: Number)
+  +area(): Number
+  +perimeter(): Number
+}
+@enduml
+
+@startuml invoice
+skinparam defaultFontName FiraCode NF
+
+class Invoice {
+  +subtotal(): Number
+  +totalTax(): Number
+  +total(): Number
+}
+
+class InvoiceLine {
+  +product: String
+  +unitPrice: Number
+  +quantity: Number
+  +constructor(product: String, unitPrice: Number, quantity: Number)
+  +total(): Number
+}
+
+Invoice *-- InvoiceLine
+@enduml
+
+@startuml larger_invoice
+skinparam defaultFontName FiraCode NF
+
+class Person {
+  +firstName: String
+  +lastName: String
+}
+
+class Login {
+  +username: String
+  +passwordHash: String
+  +checkPassword(candidatePassword: String): boolean
+  +can(permission: String): boolean
+}
+
+class Role {
+  +name: String
+  +can(permission: String): boolean
+}
+
+class Permission {
+  +name: String
+  +can(permission: String): boolean
+}
+
+class Invoice {
+  +subtotal(): Number
+  +totalTax(): Number
+  +total(): Number
+}
+
+class InvoiceLine {
+  +product: String
+  +unitPrice: Number
+  +quantity: Number
+  +total(): Number
+}
+
+Person - Login
+Login o--> Role
+Role o--> Permission
+Person "invoices" o-- "client" Invoice
+Invoice "lines" *-- InvoiceLine
+@enduml
