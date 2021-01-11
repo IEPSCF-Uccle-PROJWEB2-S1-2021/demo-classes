@@ -73,3 +73,38 @@ Role o--> Permission
 Person "invoices" o-- "client" Invoice
 Invoice "lines" *-- InvoiceLine
 @enduml
+
+@startuml carshop
+class CarShop {
+  +stockTire(tire : Tire)
+  +sellTire(tire : Tire)
+  +stockCar(car : Car)
+  +sellCar(car : Car)
+}
+class Tire {
+  +brand : string
+  +model : string
+  +distanceTraveled : Number
+  +constructor(brand : string, model : string)
+  +travel(distance : Number)
+}
+class Car {
+  +brand : string
+  +model : string
+  +distanceTraveled : Number
+  +constructor(brand : string, model : string, distanceTraveled : Number)
+  +addTire(tire : Tire)
+  +removeTire(tire : Tire)
+  +travel(distance : Number)
+}
+class Person {
+  +firstName : string
+  +lastName : string
+}
+
+CarShop o--> Tire
+Car o-> Tire
+CarShop o--> Car
+Person <-- "owner" CarShop
+Person <-- "driver" Car
+@enduml
